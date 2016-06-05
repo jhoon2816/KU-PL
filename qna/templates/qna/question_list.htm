@@ -1,14 +1,11 @@
-<html>
-	<title>Hello, Question!</title>
-<body>
-	<p>This is qna_list html document!</p>
+{% extends 'qna/base.htm' %}
 
+{% block content %}
 	{% for question in questions %}
 	<div>
 		<p>Updated: {{ question.updated_date }}</p>
 		<h1><a href="">{{ question.title }}</a></h1>
 		<p>{{ question.text|linebreaks }}</p>
 	</div>
-{% endfor %}
-</body>
-</html>
+	{% endfor %}
+{% endblock content %}
