@@ -3,7 +3,8 @@
 {% block content %}
 	{% for question in questions %}
 	<div>
-        <h1><a href="{% url 'question_detail' pk=question.pk %}">{{ question.title }} <small>{{ question.updated_date }}</small></a></h1>
+        <h1><a href="{% url 'question_detail' pk=question.pk %}">{{ question.title }} <small>{{ question.updated_date|timesince }}전</small></a></h1>
+        <!-- date:"Y년 n월 j일 D A f" -->
 		<p>{{ question.text|linebreaks }}</p>
 	</div>
 	{% endfor %}
