@@ -8,7 +8,7 @@ class Question(models.Model):
     content = models.TextField()
     # tag = models.ManyToManyField(Tag) # avoid reinventing the wheel, consider django packages someone maked it.
     created_date = models.DateTimeField(default = timezone.now)
-    updated_date = models.DateTimeField(blank=True, null=True)
+    updated_date = models.DateTimeField(default = timezone.now, blank=True, null=True)
 
     def publish(self):
         self.updated_date = timezone.now()
