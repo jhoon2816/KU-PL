@@ -16,5 +16,10 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
+    url(r'^qna/', include('qna.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'', include(admin.site.urls)),
 ]
+
+# Change Admin site header
+admin.site.site_header = 'PL센터 관리자'
