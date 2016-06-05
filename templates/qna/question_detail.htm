@@ -1,0 +1,13 @@
+{% extends 'qna/base.htm' %}
+
+{% block content %}
+    <div class="question">
+        {% if question.updated_date %}
+            <div class="date">
+                {{ question.updated_date }}
+            </div>
+        {% endif %}
+        <h1>{{ question.title }}</h1>
+        <p>{{ question.content|safe }}</p>
+    </div>
+{% endblock %}
