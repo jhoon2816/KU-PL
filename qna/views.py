@@ -40,3 +40,8 @@ def question_edit(request, pk):
     else:
         form = QuestionForm(instance=question)
     return render(request, 'qna/question_edit.htm', {'form': form})
+
+def question_remove(request, pk):
+    question = get_object_or_404(Question, pk=pk)
+    question.delete()
+    return redirect('qna.views.question_list')

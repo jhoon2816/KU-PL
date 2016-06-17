@@ -14,6 +14,12 @@ class Question(models.Model):
         self.updated_date = timezone.now()
         self.save()
 
+    # override django-summernote
+    def uploaded_filepath(instance, filename):
+        ext = filename.split('.')[-1]
+        filename = "%s.%s" % (uuid.uuid4(), ext)
+        today = datetime.now().strftime('%Y-%m-%d')
+        return os.path.join('qna', today, filename)
+
     def __str__(self):
         return self.title
-
