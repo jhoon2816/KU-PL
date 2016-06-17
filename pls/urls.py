@@ -17,6 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 
 urlpatterns = [
+    url(r'^summernote/', include('django_summernote.urls')),
     url(r'^qna/', include('qna.urls')),
     url(r'^admin/', include(admin.site.urls)),
     url(r'', include('qna.urls')),
