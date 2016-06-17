@@ -126,10 +126,12 @@ SUMMERNOTE_CONFIG = {
 
     # Customize toolbar buttons
     'toolbar': [
+        ['history', ['undo', 'redo']],
         ['type', ['style']],
-        ['style', ['bold', 'italic', 'underline', 'clear']],
-        ['paragraph', ['ul', 'ol', 'height']],
+        ['style', ['bold', 'italic', 'underline', 'strikethrough', 'clear']],
+        ['paragraph', ['ul', 'ol']],
         ['insert', ['link', 'picture', 'video', 'table']],
+        ['etc',['fullscreen', 'codeview', 'help']]
     ],
 
     # Need authentication while uploading attachments.
