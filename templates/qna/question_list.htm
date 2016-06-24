@@ -2,10 +2,15 @@
 
 {% block content %}
 	{% for question in questions %}
-	<div>
-        <h1><a href="{% url 'question_detail' pk=question.pk %}">{{ question.title }} <small>{{ question.updated_date|timesince }}전</small></a></h1>
-        <!-- date:"Y년 n월 j일 D A f" -->
-		<p>{{ question.text|linebreaks }}</p>
-	</div>
+    	<div>
+            <h1><a href="{% url 'question_detail' pk=question.pk %}">{{ question.title }} <small>{{ question.updated_date|timesince }}전</small></a></h1>
+            <!-- date:"Y년 n월 j일 D A f" -->
+    		<p>{{ question.text|linebreaks }}</p>
+            {% if question.answers.count == 0 %}
+                <p>아직 답변이 없습니다 ㅠ.ㅠ</p>
+            {% else %}
+                <a href="{% url 'question_detail' pk=question.pk %}#answer">{{ question.answers.count }} 개의 답변</a>
+            {% endif %}
+    	</div>
 	{% endfor %}
 {% endblock content %}
