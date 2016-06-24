@@ -1,17 +1,29 @@
 {% extends 'base.htm' %}
 
 {% block content %}
-    <div class="question">
-        {% if question.updated_date %}
-            <div class="date">
-                {{ question.updated_date }}
-                {% if user.is_authenticated %}
-                    <a class="btn btn-default" href="{% url 'question_edit' pk=question.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
-                    <a class="btn btn-default" href="{% url 'question_remove' pk=question.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
-                {% endif %}
-            </div>
+<div id="question" class="question">
+    {% if question.updated_date %}
+    <div class="date">
+        {{ question.updated_date }}
+        {% if user.is_authenticated %}
+        <a class="btn btn-default" href="{% url 'question_edit' pk=question.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        <a class="btn btn-default" href="{% url 'question_remove' pk=question.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
         {% endif %}
-        <h1>{{ question.title }}</h1>
-        <p>{{ question.content|safe }}</p>
     </div>
+    {% endif %}
+    <h1>{{ question.title }}</h1>
+    <p>{{ question.content|safe }}</p>
+</div>
+<hr>
+    {% for answer in question.answers.all %}
+    <div id="answer" class="answer">
+        <div class="date">{{ answer.updated_date }}</div>
+        <strong>{{ answer.user }}의 답변</strong>
+        <p>{{ answer.content|safe }}</p>
+    </div>
+    {% empty %}
+    <div id="answer" class="answer">
+        <p>아직 답변이 없습니다 ㅠ.ㅠ</p>
+    </div>
+    {% endfor %}
 {% endblock %}
