@@ -1,9 +1,12 @@
 {% extends 'base.htm' %}
 
 {% block content %}
+<style> label[for=id_title] { display: none; } label[for=id_content] { display: none; } #id_title { width: 100%; }</style>
+
+
     <h1>질문하기</h1>
     <form method="POST" class="post-form">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <button type="submit" class="save btn btn-default">질문하기</button>
     </form>
 {% endblock %}
