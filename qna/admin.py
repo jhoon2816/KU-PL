@@ -3,5 +3,13 @@ from django_summernote.admin import SummernoteModelAdmin
 from .models import Question
 from .models import Answer
 
-admin.site.register(Question)
+class QuestionAdmin(SummernoteModelAdmin):
+    class Meta:
+        model = Question
+        fields = (
+            'title',
+            'content',
+        )
+
+admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer)
