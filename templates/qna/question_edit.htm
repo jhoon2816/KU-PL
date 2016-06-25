@@ -1,8 +1,17 @@
 {% extends 'base.htm' %}
+{% load staticfiles %}
+
+{% block extrahead %}
+<script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.min.js"></script>
+<link type="stylesheet" href="django_summernote/summernote.css"></script>
+<script type="text/javascript" src="{% static 'django_summernote/jquery.ui.widget.js' %}"></script>
+<script type="text/javascript" src="{% static 'django_summernote/jquery.iframe-transport.js' %}"></script>
+<script type="text/javascript" src="{% static 'django_summernote/jquery.fileupload.js' %}"></script>
+<script type="text/javascript" src="{% static 'django_summernote/summernote.min.js' %}"></script>
+{% endblock %}
 
 {% block content %}
 <style> label[for=id_title] { display: none; } label[for=id_content] { display: none; } #id_title { width: 100%; }</style>
-
 
     <h1>질문하기</h1>
     <form method="POST" class="post-form">{% csrf_token %}
