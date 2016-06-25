@@ -11,5 +11,13 @@ class QuestionAdmin(SummernoteModelAdmin):
             'content',
         )
 
+class AnswerAdmin(SummernoteModelAdmin):
+    class Meta:
+        model = Question
+        fields = (
+            'content',
+        )
+
 admin.site.register(Question, QuestionAdmin)
-admin.site.register(Answer)
+
+admin.site.register(Answer, AnswerAdmin)
