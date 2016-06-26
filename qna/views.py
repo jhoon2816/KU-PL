@@ -3,6 +3,7 @@ from django.shortcuts import redirect
 from django.shortcuts import get_object_or_404
 from django.utils import timezone
 from .forms import QuestionForm
+from .forms import AnswerForm
 from .models import Question
 from .models import Answer
 
@@ -12,7 +13,21 @@ def question_list(request):
 
 def question_detail(request, pk):
     question = get_object_or_404(Question, pk=pk)
-    return render(request, 'qna/question_detail.htm', {'question': question})
+
+    if request.method == "POST":
+        form = AnswerForm(request.POST)
+
+        if form.is_valid():
+            answer = form.save(commit=False)
+            answer.question = question
+            answer.user = request.user
+            answer.updated_date = timezone.now()
+            answer.save()
+            return redirect('qna.views.question_detail', pk=question.pk)
+    else:
+        form = AnswerForm()
+
+    return render(request, 'qna/question_detail.htm', {'question': question, 'form': form})
 
 def question_new(request):
     if request.method == "POST":

@@ -3,8 +3,11 @@
     {% for answer in question.answers.all %}
     <strong>{{ answer.user }}의 답변 </strong><span class="date">{{ answer.updated_date|timesince }} 전</span>
     <p>{{ answer.content|safe }}</p>
-</div>
     {% empty %}
     <p>아직 답변이 없습니다 ㅠ.ㅠ</p>
     {% endfor %}
 </div>
+<form method="POST" class="post-form">{% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="save btn btn-default">답변하기</button>
+</form>
