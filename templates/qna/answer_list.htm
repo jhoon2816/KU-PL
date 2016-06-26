@@ -1,0 +1,10 @@
+<hr>
+<div id="answer" class="answer">
+    {% for answer in question.answers.all %}
+    <strong>{{ answer.user }}의 답변 </strong><span class="date">{{ answer.updated_date|timesince }} 전</span>
+    <p>{{ answer.content|safe }}</p>
+</div>
+    {% empty %}
+    <p>아직 답변이 없습니다 ㅠ.ㅠ</p>
+    {% endfor %}
+</div>
