@@ -1,13 +1,25 @@
 from django import forms
-from django_summernote.widgets import SummernoteWidget, SummernoteInplaceWidget
+from django_summernote.widgets import SummernoteWidget
+from django_summernote.widgets import SummernoteInplaceWidget
 from .models import Question
+from .models import Answer
 
 class QuestionForm(forms.ModelForm):
-
     class Meta:
         model = Question
         fields = (
             'title',
+            'content',
+        )
+        widgets = {
+            'content': SummernoteWidget(),
+            # 'content': SummernoteInplaceWidget(),
+        }
+
+class AnswerForm(forms.ModelForm):
+    class Meta:
+        model = Answer
+        fields = (
             'content',
         )
         widgets = {

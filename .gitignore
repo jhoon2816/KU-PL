@@ -51,6 +51,8 @@ coverage.xml
 
 # Django stuff:
 *.log
+/media/*
+db.sqlite3
 
 # Sphinx documentation
 docs/_build/
@@ -58,5 +60,5 @@ docs/_build/
 # PyBuilder
 target/
 
-#Ipython Notebook
+# Ipython Notebook
 .ipynb_checkpoints

@@ -100,6 +100,9 @@ MESSAGE_TAGS = {
 }
 
 # Smmernote configuration
+def static_url(url):
+    return os.path.join(STATIC_URL, url)
+
 SUMMERNOTE_CONFIG = {
     # Using SummernoteWidget - iframe mode
     'iframe': False,  # or set False to use SummernoteInplaceWidget - no iframe mode
@@ -155,26 +158,34 @@ SUMMERNOTE_CONFIG = {
         '//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js',
     ),
     'internal_css': (
-        # static_url('django_summernote/summernote.css'),
+        static_url('django_summernote/summernote.css'),
     ),
     'internal_js': (
-        # static_url('django_summernote/jquery.ui.widget.js'),
-        # static_url('django_summernote/jquery.iframe-transport.js'),
-        # static_url('django_summernote/jquery.fileupload.js'),
-        # static_url('django_summernote/summernote.min.js'),
+        static_url('django_summernote/jquery.ui.widget.js'),
+        static_url('django_summernote/jquery.iframe-transport.js'),
+        static_url('django_summernote/jquery.fileupload.js'),
+        static_url('django_summernote/summernote.min.js'),
+    ),
+
+    # And also for SummernoteInplaceWidget.
+    # !!! Be sure to put {{ form.media }} in template before initiate summernote.
+    'css_for_inplace': (
+        # static_url('core/css/vendor/font-awesome-4.6.3/css/font-awesome.min.css'),
+        static_url('django_summernote/summernote.css'),
+        static_url('django_summernote/django_summernote_inplace.css'),
+    ),
+    'js_for_inplace': (
+        # static_url('core/js/vendor/summernote-ext-highlight.js'),
+        static_url('django_summernote/jquery.ui.widget.js'),
+        static_url('django_summernote/jquery.iframe-transport.js'),
+        static_url('django_summernote/jquery.fileupload.js'),
+        static_url('django_summernote/summernote.min.js'),
     ),
 
     # You can add custom css/js for SummernoteWidget.
     'css': (
     ),
     'js': (
-    ),
-
-    # And also for SummernoteInplaceWidget.
-    # !!! Be sure to put {{ form.media }} in template before initiate summernote.
-    'css_for_inplace': (
-    ),
-    'js_for_inplace': (
     ),
 
     # You can disable file upload feature.
