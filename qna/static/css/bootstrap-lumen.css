@@ -1599,14 +1599,16 @@ pre code {
 }
 @media (min-width: 992px) {
   .container {
-    width: 970px;
+    /*width: 960px;*/
+    width: 940px;
+    padding: 0 10px;
   }
 }
-@media (min-width: 1200px) {
+/*@media (min-width: 1200px) {
   .container {
     width: 1170px;
   }
-}
+}*/
 .container-fluid {
   margin-right: auto;
   margin-left: auto;
