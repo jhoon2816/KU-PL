@@ -19,5 +19,4 @@ class AnswerAdmin(SummernoteModelAdmin):
         )
 
 admin.site.register(Question, QuestionAdmin)
-
 admin.site.register(Answer, AnswerAdmin)

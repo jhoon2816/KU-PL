@@ -2,7 +2,7 @@
 {% load staticfiles %}
 
 {% block extrahead %}
-<link href="{% static 'css/prism.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/prism.css' %}">
 <script src="{% static 'js/prism.js' %}"></script>
 <!--
 <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.min.js"></script>
@@ -12,6 +12,7 @@
 <script type="text/javascript" src="{% static 'django_summernote/jquery.fileupload.js' %}"></script>
 <script type="text/javascript" src="{% static 'django_summernote/summernote.min.js' %}"></script>
 -->
+<script src="{% static 'js/summernote-ext-highlight.js' %}"></script>
 {% endblock %}
 
 {% block content %}

@@ -13,7 +13,7 @@ SECRET_KEY = 'ukb51_mr)ultwcb8ts*btk8exm)eng&_vs5ce*k_d18fko72wn'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -126,15 +126,18 @@ SUMMERNOTE_CONFIG = {
 
     # Or, set editor language/locale forcely
     'lang': 'ko-KR',
+    # 'prettifyHtml': True,
+    'prettifyHtml': True,
 
     # Customize toolbar buttons
     'toolbar': [
         ['history', ['undo', 'redo']],
+        ['highlight', ['highlight']],
         ['type', ['style']],
         ['style', ['bold', 'italic', 'underline', 'strikethrough', 'clear']],
         ['paragraph', ['ul', 'ol']],
         ['insert', ['link', 'picture', 'video', 'table']],
-        ['etc',['fullscreen', 'codeview', 'help']]
+        ['etc',['codeview', 'help']]
     ],
 
     # Need authentication while uploading attachments.
@@ -186,6 +189,7 @@ SUMMERNOTE_CONFIG = {
     'css': (
     ),
     'js': (
+        static_url('js/summernote-ext-highlight.js'),
     ),
 
     # You can disable file upload feature.
