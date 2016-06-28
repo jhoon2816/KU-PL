@@ -7,6 +7,8 @@ class Question(models.Model):
     title = models.CharField(max_length=80)
     content = models.TextField()
     # tag=models.ManyToManyField(Tag) # avoid reinventing the wheel, consider django packages someone maked it.
+    upvote = models.IntegerField(default=0)
+    downvote =  models.IntegerField(default=0)
     created_date = models.DateTimeField(default=timezone.now)
     updated_date = models.DateTimeField(default=timezone.now, blank=True, null=True)
 
