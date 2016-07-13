@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/bootstrap-lumen.css' %}">
     <link rel="stylesheet" href="{% static 'css/qna.css' %}">
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.min.js"></script>
     {% block extrahead %}
     {% endblock %}
 </head>
@@ -46,7 +47,7 @@
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="질문을 먼저 검색하세요!">
                 <span class="input-group-btn">
-                  <button class="btn btn-default" type="button">검색</button>
+                  <button class="btn btn-default" type="button" style="padding-bottom: 8px;">검색</button>
                 </span>
               </div>
             </form>
@@ -93,7 +94,6 @@
             </div>
         </div>
     </footer>
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.9.1.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 </body>
 </html>

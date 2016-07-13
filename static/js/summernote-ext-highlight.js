@@ -40,8 +40,8 @@
             context.memo('button.highlight', function () {
                 // create button
                 var button = ui.button({
-                    contents: '<i class="fa fa-file-code-o"></i>',
-                    tooltip: 'highlight',
+                    contents: '<i class="glyphicon glyphicon-heart"></i>',
+                    tooltip: '코드 입력',
                     click: function () {
                         self.show()
                     }

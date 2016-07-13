@@ -12,8 +12,8 @@ class QuestionForm(forms.ModelForm):
             'content',
         )
         widgets = {
-            'content': SummernoteWidget(),
-            # 'content': SummernoteInplaceWidget(),
+            'content': SummernoteInplaceWidget(),
+            # 'content': SummernoteWidget(),
         }
 
 class AnswerForm(forms.ModelForm):
@@ -23,10 +23,10 @@ class AnswerForm(forms.ModelForm):
             'content',
         )
         widgets = {
-            'content': SummernoteWidget(),
-            # 'content': SummernoteInplaceWidget(),
+            'content': SummernoteInplaceWidget(),
+            # 'content': SummernoteWidget(),
         }
 
-class ContentForm(forms.Form):
-    content = forms.CharField(widget=SummernoteWidget())
+# class ContentForm(forms.Form):
     # content = forms.CharField(widget=SummernoteInplaceWidget())
+    # content = forms.CharField(widget=SummernoteWidget())

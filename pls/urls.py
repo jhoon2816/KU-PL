@@ -20,10 +20,16 @@ from django.conf.urls.static import settings
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
+    # packages
     url(r'^summernote/', include('django_summernote.urls')),
-    url(r'^qna/', include('qna.urls')),
+
+    # for admin
     url(r'^admin/', include(admin.site.urls)),
+
+    # for user
+    url(r'^qna/', include('qna.urls')),
     url(r'', include('qna.urls')),
+
 ]
 
 # django-summernote image upload
