@@ -25,7 +25,11 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # packages
     'django_summernote',
+
+    # django apps
     'qna',
 )
 
@@ -99,16 +103,12 @@ MESSAGE_TAGS = {
             messages.ERROR: 'alert-danger error'
 }
 
-# Smmernote configuration
-def static_url(url):
-    return os.path.join(STATIC_URL, url)
-
 SUMMERNOTE_CONFIG = {
     # Using SummernoteWidget - iframe mode
     'iframe': False,  # or set False to use SummernoteInplaceWidget - no iframe mode
 
     # Using Summernote Air-mode
-    'airMode': False,
+    # 'airMode': False,
 
     # Use native HTML tags (`<b>`, `<i>`, ...) instead of style attributes
     # (Firefox, Chrome only)
@@ -119,77 +119,44 @@ SUMMERNOTE_CONFIG = {
 
     # Change editor size
     'width': '100%',
-    'height': '400',
-
-    # Use proper language setting automatically (default)
-    # 'lang': None
+    # 'height': '400',
 
     # Or, set editor language/locale forcely
     'lang': 'ko-KR',
-    # 'prettifyHtml': True,
+
+    # prettifyHtml
     'prettifyHtml': True,
 
     # Customize toolbar buttons
     'toolbar': [
-        ['history', ['undo', 'redo']],
+        # ['history', ['undo', 'redo']],
         ['highlight', ['highlight']],
         ['type', ['style']],
-        ['style', ['bold', 'italic', 'underline', 'strikethrough', 'clear']],
+        ['style', ['bold', 'italic', 'underline', 'strikethrough', 'color']],
         ['paragraph', ['ul', 'ol']],
         ['insert', ['link', 'picture', 'video', 'table']],
-        ['etc',['codeview', 'help']]
+        ['etc',['codeview', 'fullscreen', 'help']]
     ],
 
     # Need authentication while uploading attachments.
     'attachment_require_authentication': True,
 
-    # Set `upload_to` function for attachments.
-    # 'attachment_upload_to': my_custom_upload_to_func(),
-
-    # Set custom storage class for attachments.
-    # 'attachment_storage_class': 'my.custom.storage.class.name',
-
-    # Set custom model for attachments (default: 'django_summernote.Attachment')
-    # 'attachment_model': 'my.custom.attachment.model', # must inherit 'django_summernote.AbstractAttachment'
-
-    # Set common css/js media files
-    'external_css': (
-        '//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css',
-    ),
-    'external_js': (
-        '//code.jquery.com/jquery-1.9.1.min.js',
-        '//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js',
-    ),
-    'internal_css': (
-        static_url('django_summernote/summernote.css'),
-    ),
-    'internal_js': (
-        static_url('django_summernote/jquery.ui.widget.js'),
-        static_url('django_summernote/jquery.iframe-transport.js'),
-        static_url('django_summernote/jquery.fileupload.js'),
-        static_url('django_summernote/summernote.min.js'),
+    # You can add custom css/js for SummernoteWidget.
+    'css': (),
+    'js': (
+        STATIC_URL + 'js/summernote-ext-highlight.js',
     ),
 
     # And also for SummernoteInplaceWidget.
     # !!! Be sure to put {{ form.media }} in template before initiate summernote.
-    'css_for_inplace': (
-        # static_url('core/css/vendor/font-awesome-4.6.3/css/font-awesome.min.css'),
-        static_url('django_summernote/summernote.css'),
-        static_url('django_summernote/django_summernote_inplace.css'),
-    ),
+    'css_for_inplace': (),
     'js_for_inplace': (
-        # static_url('core/js/vendor/summernote-ext-highlight.js'),
-        static_url('django_summernote/jquery.ui.widget.js'),
-        static_url('django_summernote/jquery.iframe-transport.js'),
-        static_url('django_summernote/jquery.fileupload.js'),
-        static_url('django_summernote/summernote.min.js'),
-    ),
-
-    # You can add custom css/js for SummernoteWidget.
-    'css': (
-    ),
-    'js': (
-        static_url('js/summernote-ext-highlight.js'),
+        STATIC_URL + 'js/summernote-ext-highlight.js',
+        # '//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.css',
+        # '//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/theme/monokai.css',
+        # '//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/codemirror.js',
+        # '//cdnjs.cloudflare.com/ajax/libs/codemirror/3.20.0/mode/xml/xml.js',
+        # '//cdnjs.cloudflare.com/ajax/libs/codemirror/2.36.0/formatting.js',
     ),
 
     # You can disable file upload feature.

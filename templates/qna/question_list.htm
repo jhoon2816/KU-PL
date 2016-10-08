@@ -3,7 +3,7 @@
 {% block content %}
 	{% for question in questions %}
     	<div>
-            <h1><a href="{% url 'question_detail' pk=question.pk %}">{{ question.title }} <small>{{ question.updated_date|timesince }}전</small></a></h1>
+            <h1><span style="padding: 0 12px;"><a href="#">▲</a>{{ question.vote }}<a href="#">▼</a></span><a href="{% url 'question_detail' pk=question.pk %}">{{ question.title }} <small>{{ question.updated_date|timesince }}전</small></a></h1>
             <!-- date:"Y년 n월 j일 D A f" -->
     		<p>{{ question.text|linebreaks }}</p>
             {% if question.answers.count == 0 %}
