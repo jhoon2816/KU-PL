@@ -29,9 +29,7 @@ urlpatterns = [
     # for user
     url(r'^qna/', include('qna.urls')),
     url(r'', include('qna.urls')),
-
 ]
-
 # django-summernote image upload
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += staticfiles_urlpatterns()

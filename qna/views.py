@@ -23,7 +23,7 @@ def question_detail(request, pk):
             answer.user = request.user
             answer.updated_date = timezone.now()
             answer.save()
-            return redirect('qna.views.question_detail', pk=question.pk)
+            return redirect('question_detail', pk=question.pk)
     else:
         form = AnswerForm()
 
@@ -32,13 +32,13 @@ def question_detail(request, pk):
 def question_new(request):
     if request.method == "POST":
         form = QuestionForm(request.POST)
-
+        # View 가 Controller 역할을 한다.
         if form.is_valid():
             question = form.save(commit=False)
             question.user = request.user
             question.updated_date = timezone.now()
             question.save()
-            return redirect('qna.views.question_detail', pk=question.pk)
+            return redirect('question_detail', pk=question.pk)
     else:
         form = QuestionForm()
     return render(request, 'qna/question_edit.htm', {'form': form})
@@ -52,7 +52,7 @@ def question_edit(request, pk):
             question.user = request.user
             question.updated_date = timezone.now()
             question.save()
-            return redirect('qna.views.question_detail', pk=question.pk)
+            return redirect('question_detail', pk=question.pk)
     else:
         form = QuestionForm(instance=question)
     return render(request, 'qna/question_edit.htm', {'form': form})
@@ -60,5 +60,5 @@ def question_edit(request, pk):
 def question_remove(request, pk):
     question = get_object_or_404(Question, pk=pk)
     question.delete()
-    return redirect('qna.views.question_list')
+    return redirect('question_list')
 

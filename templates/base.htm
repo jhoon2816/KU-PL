@@ -10,7 +10,44 @@
     {% endblock %}
 </head>
 <body>
+<style type="text/css">
+/* Side notes for calling out things
+-------------------------------------------------- */
 
+/* Base styles (regardless of theme) */
+.bs-callout {
+  margin: 20px 0;
+  padding: 15px 30px 15px 15px;
+  border-left: 5px solid #eee;
+}
+.bs-callout h4 {
+  margin-top: 0;
+}
+.bs-callout p:last-child {
+  margin-bottom: 0;
+}
+.bs-callout code,
+.bs-callout .highlight {
+  background-color: #fff;
+}
+
+/* Themes for different contexts */
+.bs-callout-danger {
+  background-color: #fcf2f2;
+  border-color: #dFb5b4;
+}
+.bs-callout-warning {
+  background-color: #fefbed;
+  border-color: #f1e7bc;
+}
+.bs-callout-info {
+  background-color: #f0f7fd;
+  border-color: #d0e3f0;
+}
+.navbar-brand {
+  font-weight: bold;
+}
+</style>
     <nav class="navbar navbar-inverse navbar-static-top">
       <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -26,24 +63,8 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">홈</a></li>
-            <li><a href="/qna">질문답변</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
-                <li role="separator" class="divider"></li>
-                <li><a href="#">One more separated link</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <form class="navbar-form navbar-right" role="search">
+          <ul class="nav navbar-nav navbar-left">
+            <form class="navbar-form navbar-left" role="search">
               <div class="input-group">
                 <input type="text" class="form-control" placeholder="질문을 먼저 검색하세요!">
                 <span class="input-group-btn">
@@ -51,15 +72,45 @@
                 </span>
               </div>
             </form>
-            <li><a href="#">문의하기</a></li>
+          </ul>
+          <ul class="nav navbar-nav">
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">사용자 ID <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">소개 <span class="caret"></span></a>
               <ul class="dropdown-menu">
-                <li><a href="#">Action</a></li>
-                <li><a href="#">Another action</a></li>
-                <li><a href="#">Something else here</a></li>
+                <li><a href="#">관리자소개</a></li>
+                <li><a href="#">시간표</a></li>
+                <li><a href="#">위치</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">질문/답변 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Python</a></li>
+                <li><a href="#">C</a></li>
+                <li><a href="#">C++</a></li>
                 <li role="separator" class="divider"></li>
-                <li><a href="#">Separated link</a></li>
+                <li><a href="#">ETC</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">튜토리얼 <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">비쥬얼스튜디오 설치법</a></li>
+                <li><a href="#">Python 설치법</a></li>
+                <li><a href="#">Java 환경변수 설정방법</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Kuding</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">마이페이지</a></li>
+                <li><a href="#">비밀번호 변경</a></li>
+                <li><a href="#">로그아웃</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="#">회원탈퇴</a></li>
               </ul>
             </li>
           </ul>
@@ -70,6 +121,7 @@
 
     <div class="content">
         <div class="container paper">
+        <div class="bs-callout bs-callout-info" id="callout-type-b-i-elems"> <h4>이것은 공지입니다.</h4> <p>테스트 문구는 이렇게 작성하세요. 시험장소 공지나 그런 건 alert 로 처리하세요. 자세한 건 부트스트랩 문서를 읽으세요.</p> </div>
             <div class="page-header">
                 <h1><a href="/qna">최근 올라온 질문</a>
                 {% if user.is_authenticated %}

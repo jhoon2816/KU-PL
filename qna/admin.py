@@ -7,7 +7,7 @@ class QuestionAdmin(SummernoteModelAdmin):
     class Meta:
         model = Question
         fields = (
-            'title',
+            'title', 
             'content',
         )
 
